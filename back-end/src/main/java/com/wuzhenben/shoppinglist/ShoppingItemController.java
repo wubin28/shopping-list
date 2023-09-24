@@ -1,5 +1,6 @@
 package com.wuzhenben.shoppinglist;
 
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -47,6 +48,12 @@ public class ShoppingItemController {
             shoppingItemToUpdate.setPurchased(shoppingItem.getPurchased());
             return this.shoppingItemRepository.save(shoppingItemToUpdate);
         });
+    }
+
+    // delete shopping item by id
+    @DeleteMapping("/{id}")
+    public void deleteShoppingItemById(@PathVariable("id") Long id) {
+        this.shoppingItemRepository.deleteById(id);
     }
 
 }
