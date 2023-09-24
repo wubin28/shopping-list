@@ -28,6 +28,8 @@ body {
 
 el-container {
   background-color: #e9eef3;
+  color: var(--el-text-color-primary);
+  text-align: center;
 }
 header {
   line-height: 1.5;
