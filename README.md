@@ -100,11 +100,17 @@ http://localhost:8081/swagger-ui.html
 - Open Insomnia -> 
 
   add a collection -> 
-  add POST request -> 
+  add POST request: createShoppingItem -> 
     POST: localhost:8081/api/v1/shopping-items ->
     JSON: {"title": "milk", "purchased": false} ->
     Send
-  add GET request -> 
+  add GET request ->
+    getAll
+      GET: localhost:8081/api/v1/shopping-items ->
+      Send
+    getById
+      GET: localhost:8081/api/v1/shopping-items/1 ->
+      Send
   add PUT request -> 
   add DELETE request
 
