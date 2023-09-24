@@ -112,5 +112,9 @@ http://localhost:8081/swagger-ui.html
       GET: localhost:8081/api/v1/shopping-items/1 ->
       Send
   add PUT request -> 
+    updateShoppingItem
+      PUT: localhost:8081/api/v1/shopping-items/1 ->
+      JSON: {"title": "milk", "purchased": true} ->
+      Send
   add DELETE request
 
