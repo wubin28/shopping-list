@@ -1,6 +1,6 @@
 # Shopping List App
 
-### Proxy Setup
+## Proxy Setup
 
 - As to Ubuntu, set ignore hosts in Network Proxy Settings
 
@@ -8,12 +8,13 @@
 0.0.0.0, localhost, 127.0.0.0/8, ::1
 ```
 
-### Docker Setup
+## Docker Setup
 
 - Install Docker for Ubuntu (not Docker Desktop)
 - Install Docker desktop for Mac
 - Install Docker desktop with WSL2 for Windows
 
+## back-end setup
 ### JDK Setup
 
 - Install JDK 17 tem using SDKMAN(for Mac/Linux) or Chocolatey/Jabba(for Windows)
@@ -32,15 +33,18 @@
 - flyway migration
 - postgresql driver
 
-## How to run the back-end application
+### How to run the back-end application
 
 - Start postgres database and pgadmin using docker compose
 
 ```shell
+cd infrastructure
 docker compose up -d
 ```
 
 - Start the web application
+
+go to `back-end` folder
 
 ```shell
 ./gradlew bootRun
@@ -88,7 +92,7 @@ Servers
   "View/Edit Data" -> 
   All Rows
 
-## How to check api documentation
+### How to check api documentation
 
 http://localhost:8081/swagger-ui.html
 
@@ -122,3 +126,79 @@ http://localhost:8081/swagger-ui.html
       DELETE: localhost:8081/api/v1/shopping-items/1 ->
       Send
 
+## front-end setup
+
+go to `front-end` folder
+
+- Install node.js and npm using nvm
+
+https://github.com/nvm-sh/nvm
+
+```shell
+nvm -v
+nvm ls-remote
+nvm install --lts
+nvm ls
+```
+
+- generate scaffold project using create-vue
+
+https://github.com/vuejs/create-vue
+
+```shell
+npm create vue@latest
+cd front-end
+vue -V
+npm install
+npm run format
+npm run dev
+```
+
+- Install vue-axios for using Axios conveniently to make HTTP requests to back-end server or API
+
+https://www.npmjs.com/package/vue-axios
+
+```shell
+npm install --save axios vue-axios
+npm list
+```
+
+- Install element-plus for high-quality components like buttons, tables, dialogs, etc.
+
+https://element-plus.org/en-US/guide/installation.html#version
+
+```shell
+npm install element-plus --save
+npm list
+npm info element-plus
+```
+
+### Front-end IDE Setup
+
+- Install WebStorm
+
+### Project setup to install all dependencies
+```
+npm install
+```
+
+### How to run the vue.js app - Compiles and hot-reloads the front-end app for development
+```
+npm run serve
+```
+
+Visit the app from localhost or another machine
+
+http://localhost:8080/
+
+http://192.168.31.180:8080
+
+### Compiles and minifies for production
+
+```
+npm run build
+```
+
+### Customize configuration
+
+See [Configuration Reference](https://cli.vuejs.org/config/).
