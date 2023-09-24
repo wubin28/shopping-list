@@ -6,7 +6,9 @@ import ShoppingList from '@/components/ShoppingList.vue'
 <template>
   <header>
     <div class="wrapper">
-      <shopping-list></shopping-list>
+      <el-container>
+        <shopping-list></shopping-list>
+      </el-container>
       <nav>
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/about">About</RouterLink>
