@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
 import ShoppingList from '@/components/ShoppingList.vue'
+import { ElContainer, ElMain } from 'element-plus'
 </script>
 
 <template>
