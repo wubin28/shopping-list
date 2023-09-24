@@ -22,6 +22,13 @@ import ShoppingList from '@/components/ShoppingList.vue'
 </template>
 
 <style scoped>
+body {
+  margin: 0;
+}
+
+el-container {
+  background-color: #e9eef3;
+}
 header {
   line-height: 1.5;
   max-height: 100vh;
