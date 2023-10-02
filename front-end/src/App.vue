@@ -21,4 +21,7 @@ body {
   color: var(--el-text-color-primary);
   text-align: center;
 }
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+}
 </style>
