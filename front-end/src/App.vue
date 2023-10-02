@@ -1,11 +1,13 @@
 <script setup lang="ts">
 import ShoppingList from '@/components/ShoppingList.vue'
-import { ElContainer } from 'element-plus'
+import { ElContainer, ElMain } from 'element-plus'
 </script>
 
 <template>
   <el-container>
-    <shopping-list></shopping-list>
+    <el-main>
+      <shopping-list></shopping-list>
+    </el-main>
   </el-container>
 </template>
 
