@@ -20,12 +20,17 @@ async function loadShoppingItems() {
   }
 }
 
-const createShoppingItem = (shoppingItem: any) => {
+async function createShoppingItem(shoppingItem: any) {
   console.log('ShoppingItem', shoppingItem)
+  await axios.post('http://localhost:8081/api/v1/shopping-items', {
+    item: shoppingItem.item,
+    purchased: shoppingItem.purchased
+  })
   ElMessage({
     message: 'Shopping item created',
     type: 'success'
   })
+  await loadShoppingItems()
 }
 </script>
 
