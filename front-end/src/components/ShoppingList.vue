@@ -32,6 +32,20 @@ async function createShoppingItem(shoppingItem: any) {
   })
   await loadShoppingItems()
 }
+
+async function updateShoppingItem(shoppingItem: any) {
+  console.log('ShoppingItem', shoppingItem)
+  await axios.put(`http://localhost:8081/api/v1/shopping-items/${shoppingItem.id}`, {
+    id: shoppingItem.id,
+    item: shoppingItem.item,
+    purchased: shoppingItem.purchased
+  })
+  ElMessage({
+    message: 'Shopping Item updated',
+    type: 'success'
+  })
+  await loadShoppingItems()
+}
 </script>
 
 <template>
@@ -41,7 +55,16 @@ async function createShoppingItem(shoppingItem: any) {
       <shopping-item-form @send-message="createShoppingItem"></shopping-item-form>
       <el-table :data="shoppingItems">
         <el-table-column prop="item" label="Item"></el-table-column>
-        <el-table-column prop="purchased" label="Purchased"></el-table-column>
+        <el-table-column fixed="right" label="Operations">
+          <template #default="scope">
+            <el-space wrap>
+              <el-switch
+                v-model="scope.row.purchased"
+                @change="updateShoppingItem(scope.row)"
+              ></el-switch>
+            </el-space>
+          </template>
+        </el-table-column>
       </el-table>
     </el-col>
   </el-row>
