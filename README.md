@@ -139,6 +139,7 @@ nvm -v
 nvm ls-remote
 nvm install --lts
 nvm ls
+node -v # v18.18.0
 ```
 
 - generate scaffold project using create-vue
