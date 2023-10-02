@@ -1,13 +1,21 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { ElForm, ElFormItem, ElInput, ElButton } from 'element-plus'
+import { ElForm, ElFormItem, ElInput, ElButton, ElMessage } from 'element-plus'
 
 const formInput = ref({ item: '', purchased: false })
 
 const emit = defineEmits(['send-message'])
 
 const onSubmit = () => {
-  emit('send-message', formInput.value)
+  if (formInput.value.item.length > 3) {
+    emit('send-message', formInput.value)
+  } else {
+    ElMessage({
+      message: 'Item must be longer than 3 characters',
+      type: 'error'
+    })
+  }
+  formInput.value.item = ''
 }
 </script>
 
