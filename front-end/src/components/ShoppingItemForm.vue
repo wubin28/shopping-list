@@ -4,8 +4,10 @@ import { ElForm, ElFormItem, ElInput, ElButton } from 'element-plus'
 
 const formInput = ref({ title: '', purchased: false })
 
+const emit = defineEmits(['send-message'])
+
 const onSubmit = () => {
-  console.log('ShoppingItem', formInput.value)
+  emit('send-message', formInput.value)
 }
 </script>
 
