@@ -46,11 +46,27 @@ async function updateShoppingItem(shoppingItem: any) {
   })
   await loadShoppingItems()
 }
+
+function cancelDelete() {
+  ElMessage({
+    message: 'Delete canceled',
+    type: 'info'
+  })
+}
+
+async function deleteShoppingItemById(shoppingItem: any) {
+  await axios.delete(`http://localhost:8081/api/v1/shopping-items/${shoppingItem.id}`)
+  ElMessage({
+    message: 'Shopping Item deleted',
+    type: 'success'
+  })
+  await loadShoppingItems()
+}
 </script>
 
 <template>
   <el-row>
-    <el-col :span="12" :offset="7" style="width: 100%">
+    <el-col>
       <h1>ShoppingList</h1>
       <shopping-item-form @send-message="createShoppingItem"></shopping-item-form>
       <el-table :data="shoppingItems">
@@ -62,6 +78,19 @@ async function updateShoppingItem(shoppingItem: any) {
                 v-model="scope.row.purchased"
                 @change="updateShoppingItem(scope.row)"
               ></el-switch>
+              <el-popconfirm
+                cancel-button-text="No"
+                confirm-button-text="Yes"
+                icon="el-icon-info"
+                icon-color="red"
+                title="Are you sure to delete this shopping item?"
+                @cancel="cancelDelete"
+                @confirm="deleteShoppingItemById(scope.row)"
+              >
+                <template #reference>
+                  <el-button size="small" type="danger">Delete</el-button>
+                </template>
+              </el-popconfirm>
             </el-space>
           </template>
         </el-table-column>
