@@ -42,18 +42,6 @@ cd infrastructure
 docker compose up -d
 ```
 
-- Start the web application
-
-go to `back-end` folder
-
-```shell
-./gradlew bootRun
-```
-
-- Check the API using Insomnia
-
-open Insomnia -> shoppling list collection -> add a shopping item
-
 - Check the database using pgadmin
 
 open portainer -> 
@@ -91,6 +79,31 @@ Servers
   right-click -> 
   "View/Edit Data" -> 
   All Rows
+
+- How to configure data source in intellij idea
+
+  - Install JPA Buddy
+
+  - JPA Structure (on lower left corner) -> 
+    right-click Data connections -> 
+    New -> 
+    Detect Connections -> 
+    Password: postgres -> 
+    Test Connection -> 
+    OK
+
+- Start the web application
+
+go to `back-end` folder
+
+```shell
+./gradlew bootRun
+```
+
+- Check the API using Insomnia
+
+open Insomnia -> shoppling list collection -> add a shopping item
+
 
 ### How to check api documentation
 
