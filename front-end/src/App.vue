@@ -11,4 +11,12 @@ import { ElContainer, ElMain } from 'element-plus'
   </el-container>
 </template>
 
-<style scoped></style>
+<style scoped>
+body {
+  margin: 0;
+}
+
+.el-container {
+  background-color: #e9eef3;
+}
+</style>
