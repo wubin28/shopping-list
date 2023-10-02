@@ -44,7 +44,7 @@ public class ShoppingItemController {
     @PutMapping("/{id}")
     public Optional<ShoppingItem> updateShoppingItemById(@PathVariable("id") Long id, @RequestBody ShoppingItem shoppingItem) {
         return this.shoppingItemRepository.findById(id).map(shoppingItemToUpdate -> {
-            shoppingItemToUpdate.setTitle(shoppingItem.getTitle());
+            shoppingItemToUpdate.setItem(shoppingItem.getItem());
             shoppingItemToUpdate.setPurchased(shoppingItem.getPurchased());
             return this.shoppingItemRepository.save(shoppingItemToUpdate);
         });

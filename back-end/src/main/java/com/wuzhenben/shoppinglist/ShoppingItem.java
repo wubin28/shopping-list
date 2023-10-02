@@ -19,8 +19,8 @@ public class ShoppingItem {
     @Column(name = "id", nullable = false)
     private Long id;
 
-    @Column(name = "title", nullable = false)
-    private String title;
+    @Column(name = "item", nullable = false)
+    private String item;
 
     @Column(name = "purchased", nullable = false)
     private Boolean purchased = false;
