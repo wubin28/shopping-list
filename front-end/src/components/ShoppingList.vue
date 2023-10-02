@@ -34,6 +34,10 @@ const createShoppingItem = (shoppingItem: any) => {
     <el-col :span="12" :offset="7" style="width: 100%">
       <h1>ShoppingList</h1>
       <shopping-item-form @send-message="createShoppingItem"></shopping-item-form>
+      <el-table :data="shoppingItems">
+        <el-table-column prop="item" label="Item"></el-table-column>
+        <el-table-column prop="purchased" label="Purchased"></el-table-column>
+      </el-table>
     </el-col>
   </el-row>
 </template>
