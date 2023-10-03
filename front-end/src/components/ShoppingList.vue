@@ -20,7 +20,13 @@ async function loadShoppingItems() {
   }
 }
 
-async function createShoppingItem(shoppingItem: any) {
+interface ShoppingItem {
+  id?: number
+  item: string
+  purchased: boolean
+}
+
+async function createShoppingItem(shoppingItem: ShoppingItem) {
   console.log('ShoppingItem', shoppingItem)
   await axios.post('http://localhost:8081/api/v1/shopping-items', {
     item: shoppingItem.item,
@@ -33,7 +39,7 @@ async function createShoppingItem(shoppingItem: any) {
   await loadShoppingItems()
 }
 
-async function updateShoppingItem(shoppingItem: any) {
+async function updateShoppingItem(shoppingItem: ShoppingItem) {
   console.log('ShoppingItem', shoppingItem)
   await axios.put(`http://localhost:8081/api/v1/shopping-items/${shoppingItem.id}`, {
     id: shoppingItem.id,
@@ -54,7 +60,7 @@ function cancelDelete() {
   })
 }
 
-async function deleteShoppingItemById(shoppingItem: any) {
+async function deleteShoppingItemById(shoppingItem: ShoppingItem) {
   await axios.delete(`http://localhost:8081/api/v1/shopping-items/${shoppingItem.id}`)
   ElMessage({
     message: 'Shopping Item deleted',
