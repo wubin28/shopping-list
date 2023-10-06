@@ -35,6 +35,13 @@ services:
     depends_on:
       - postgres
 
+  shopping-list-front-end:
+    image: wubin28/shopping-list-front-end:v1.0
+    ports:
+      - "8080:8080"
+    depends_on:
+      - shopping-list-api
+
 volumes:
   shopping-list-postgres-data:
   shopping-list-pgadmin-data:
