@@ -244,3 +244,11 @@ docker compose up -d
 
 # Check the API using Insomnia
 ```
+
+## How to push back-end and front-end images to hub.docker.com
+
+```
+docker login
+docker push wubin28/shopping-list-api:v1.0
+docker push wubin28/shopping-list-front-end:v1.0
+```
