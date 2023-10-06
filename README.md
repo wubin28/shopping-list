@@ -33,7 +33,7 @@
 - flyway migration
 - postgresql driver
 
-### How to run the back-end application
+### How to run the back-end application during development
 
 - Start postgres database and pgadmin using docker compose
 
@@ -104,6 +104,20 @@ go to `back-end` folder
 
 open Insomnia -> shoppling list collection -> add a shopping item
 
+### How to run the back-end application in a container
+
+```
+# generate back-end app image
+cd back-end
+./gradlew build
+docker buildx build --build-arg JAR_FILE=build/libs/shoppinglist-0.0.1-SNAPSHOT.jar -t wubin28/shopping-list-api:v1.0 .
+
+# start 3 containers: postgres, pgadmin, shopping-list-api
+cd infrastructure
+docker compose up -d
+
+# Check the API using Insomnia
+```
 
 ### How to check api documentation
 
