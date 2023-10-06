@@ -230,3 +230,17 @@ npm run build
 ### Customize configuration
 
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+### How to run the front-end application in a container
+
+```
+# generate front-end app image
+cd front-end
+docker buildx build  -t wubin28/shopping-list-front-end:v1.0 .
+
+# start 4 containers: postgres, pgadmin, shopping-list-api, shopping-list-front-end
+cd infrastructure
+docker compose up -d
+
+# Check the API using Insomnia
+```
