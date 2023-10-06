@@ -1,4 +1,4 @@
-FROM openjdk:17-jdk-slim
+FROM bellsoft/liberica-runtime-container:jre-17-slim-glibc
 
 VOLUME /tmp
 
