@@ -248,7 +248,8 @@ docker buildx build  -t wubin28/shopping-list-front-end:v1.0 .
 cd infrastructure
 docker compose up -d
 
-# Check the API using Insomnia
+# Check the API using front end
+http://localhost:8080/
 ```
 
 ## How to push back-end and front-end images to hub.docker.com
