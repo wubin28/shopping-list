@@ -24,6 +24,16 @@ services:
     volumes:
       - shopping-list-pgadmin-data:/var/lib/pgadmin
 
+  shopping-list-api:
+    image: wubin28/shopping-list-api:v1.0
+    ports:
+      - "8081:8081"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/shoppingList
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: postgres
+    depends_on:
+      - postgres
 
 volumes:
   shopping-list-postgres-data:
