@@ -221,6 +221,8 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 ### How to run the back-end application in a container
 
 ```
+# NOTE: You need to generate docker image on ubuntu, not on apple m1, to generate an amd64 image, instead of arm64 image
+
 # start postgres database and pgadmin using docker compose for running tests during gradle build
 cd infrastructure
 docker compose up -d
@@ -240,6 +242,8 @@ docker compose up -d
 ### How to run the front-end application in a container
 
 ```
+# NOTE: You need to generate docker image on ubuntu, not on apple m1, to generate an amd64 image, instead of arm64 image
+
 # generate front-end app image
 cd front-end
 docker buildx build  -t wubin28/shopping-list-front-end:v1.0 .
@@ -258,4 +262,12 @@ http://localhost:8080/
 docker login
 docker push wubin28/shopping-list-api:v1.0
 docker push wubin28/shopping-list-front-end:v1.0
+```
+
+## How to pull back-end and front-end images from hub.docker.com
+
+```
+docker login
+docker pull wubin28/shopping-list-api:v1.0
+docker pull wubin28/shopping-list-front-end:v1.0
 ```
