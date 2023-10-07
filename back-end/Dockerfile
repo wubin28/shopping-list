@@ -1,4 +1,6 @@
-FROM bellsoft/liberica-runtime-container:jre-17-slim-glibc
+FROM openjdk:17-jdk-slim-buster
+
+RUN apt-get update && apt-get install -y iproute2
 
 VOLUME /tmp
 

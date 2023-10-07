@@ -25,7 +25,7 @@ services:
       - shopping-list-pgadmin-data:/var/lib/pgadmin
 
   shopping-list-api:
-    image: wubin28/shopping-list-api:v1.0
+    image: wubin28/shopping-list-api:v1.0.chaos.pumba.tc
     ports:
       - "8081:8081"
     environment:
