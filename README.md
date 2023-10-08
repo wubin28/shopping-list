@@ -271,3 +271,53 @@ docker login
 docker pull wubin28/shopping-list-api:v1.0
 docker pull wubin28/shopping-list-front-end:v1.0
 ```
+
+## How to demo chaos engineering for dependency outage and delay
+
+* Steady state hypothesis for dependency outage: The front end app should show a message "Could not connect to the back end app" when the back end app is down.
+
+* Steady state hypothesis for dependency delay: The front end app should show a message "The response from the back end was delayed for over 3 seconds" when the back end app delays for over 3 seconds.
+
+* Steady state hypothesis is not supported
+
+```
+# hypothesis not supported for dependency outage: see error in chrome console only
+git co chaos-pumba-tc
+cd infrastructure
+docker compose down
+docker compose up
+http://localhost:8080/
+docker container ls
+pumba_linux_amd64 kill infrastructure-shopping-list-api-1
+
+# hypothesis not supported for dependency delay: not see anything in web page and console
+git co chaos-pumba-tc
+cd infrastructure
+docker compose down
+docker compose up
+http://localhost:8080/
+docker container ls
+pumba_linux_amd64 netem --duration 1m delay --time 4000 infrastructure-shopping-list-api-1
+```
+
+* Steady state hypothesis is supported
+
+```
+# hypothesis supported for dependency outage: see user-friendly message "Could not connect to the back end app"
+git co chaos-pumba-dependency-outage
+cd infrastructure
+docker compose down
+docker compose up
+http://localhost:8080/
+docker container ls
+pumba_linux_amd64 kill infrastructure-shopping-list-api-1
+
+# hypothesis supported for dependency delay: see user-friendly message "The response from the back end was delayed for over 3 seconds"
+git co chaos-pumba-tc
+cd infrastructure
+docker compose down
+docker compose up
+http://localhost:8080/
+docker container ls
+pumba_linux_amd64 netem --duration 1m delay --time 4000 infrastructure-shopping-list-api-1
+```
