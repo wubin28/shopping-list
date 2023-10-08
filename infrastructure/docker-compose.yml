@@ -36,7 +36,7 @@ services:
       - postgres
 
   shopping-list-front-end:
-    image: wubin28/shopping-list-front-end:v1.0
+    image: wubin28/shopping-list-front-end:v1.0.delay
     ports:
       - "8080:8080"
     depends_on:
