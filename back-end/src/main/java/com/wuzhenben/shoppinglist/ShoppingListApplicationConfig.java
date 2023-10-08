@@ -17,7 +17,9 @@ public class ShoppingListApplicationConfig {
                 registry.addMapping(
                     "/api/v1/shopping-items/**"
                 ).allowedOrigins(
-                    "http://localhost:8080"
+                    "http://localhost:8080" // for production
+                        , "http://localhost:5173" // for development
+                        , "http://0.0.0.0:8080" // for portainer
                 ).allowedMethods(
                     "GET", "POST", "PUT", "DELETE");
             }

@@ -17,6 +17,11 @@ async function loadShoppingItems() {
     console.log('ShoppingItems', shoppingItems.value)
   } catch (error) {
     console.log('An error occurred:', error)
+    ElMessage({
+      message: 'Could not connect to the back end app.',
+      type: 'error',
+      duration: 5000 // Display the message for 5 seconds
+    })
   }
 }
 
@@ -27,30 +32,48 @@ interface ShoppingItem {
 }
 
 async function createShoppingItem(shoppingItem: ShoppingItem) {
-  console.log('ShoppingItem', shoppingItem)
-  await axios.post('http://localhost:8081/api/v1/shopping-items', {
-    item: shoppingItem.item,
-    purchased: shoppingItem.purchased
-  })
-  ElMessage({
-    message: 'Shopping item created',
-    type: 'success'
-  })
-  await loadShoppingItems()
+  try {
+    console.log('ShoppingItem', shoppingItem)
+    await axios.post('http://localhost:8081/api/v1/shopping-items', {
+      item: shoppingItem.item,
+      purchased: shoppingItem.purchased
+    })
+    ElMessage({
+      message: 'Shopping item created',
+      type: 'success'
+    })
+    await loadShoppingItems()
+  } catch (error) {
+    console.log('An error occurred:', error)
+    ElMessage({
+      message: 'Could not connect to the back end app.',
+      type: 'error',
+      duration: 5000 // Display the message for 5 seconds
+    })
+  }
 }
 
 async function updateShoppingItem(shoppingItem: ShoppingItem) {
-  console.log('ShoppingItem', shoppingItem)
-  await axios.put(`http://localhost:8081/api/v1/shopping-items/${shoppingItem.id}`, {
-    id: shoppingItem.id,
-    item: shoppingItem.item,
-    purchased: shoppingItem.purchased
-  })
-  ElMessage({
-    message: 'Shopping Item updated',
-    type: 'success'
-  })
-  await loadShoppingItems()
+  try {
+    console.log('ShoppingItem', shoppingItem)
+    await axios.put(`http://localhost:8081/api/v1/shopping-items/${shoppingItem.id}`, {
+      id: shoppingItem.id,
+      item: shoppingItem.item,
+      purchased: shoppingItem.purchased
+    })
+    ElMessage({
+      message: 'Shopping Item updated',
+      type: 'success'
+    })
+    await loadShoppingItems()
+  } catch (error) {
+    console.log('An error occurred:', error)
+    ElMessage({
+      message: 'Could not connect to the back end app.',
+      type: 'error',
+      duration: 5000 // Display the message for 5 seconds
+    })
+  }
 }
 
 function cancelDelete() {
@@ -61,12 +84,21 @@ function cancelDelete() {
 }
 
 async function deleteShoppingItemById(shoppingItem: ShoppingItem) {
-  await axios.delete(`http://localhost:8081/api/v1/shopping-items/${shoppingItem.id}`)
-  ElMessage({
-    message: 'Shopping Item deleted',
-    type: 'success'
-  })
-  await loadShoppingItems()
+  try {
+    await axios.delete(`http://localhost:8081/api/v1/shopping-items/${shoppingItem.id}`)
+    ElMessage({
+      message: 'Shopping Item deleted',
+      type: 'success'
+    })
+    await loadShoppingItems()
+  } catch (error) {
+    console.log('An error occurred:', error)
+    ElMessage({
+      message: 'Could not connect to the back end app.',
+      type: 'error',
+      duration: 5000 // Display the message for 5 seconds
+    })
+  }
 }
 </script>
 
