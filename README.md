@@ -313,7 +313,7 @@ docker container ls
 pumba_linux_amd64 kill infrastructure-shopping-list-api-1
 
 # hypothesis supported for dependency delay: see user-friendly message "The response from the back end was delayed for over 3 seconds"
-git co chaos-pumba-tc
+git co chaos-pumba-dependency-delay
 cd infrastructure
 docker compose down
 docker compose up
