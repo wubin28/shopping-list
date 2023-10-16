@@ -15,11 +15,10 @@ public class ShoppingListApplicationConfig {
             @Override
             public void addCorsMappings(@NonNull CorsRegistry registry) {
                 registry.addMapping(
-                        "/api/v1/shopping-items/**"
-                ).allowedOrigins(
-                        System.getenv("FRONT_END_URL")
-                ).allowedMethods(
-                        "GET", "POST", "PUT", "DELETE");
+                        "/api/v1/shopping-items/**").allowedOrigins(
+                                "http://localhost:8080")
+                        .allowedMethods(
+                                "GET", "POST", "PUT", "DELETE");
             }
         };
     }
