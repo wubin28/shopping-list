@@ -19,9 +19,9 @@ spec:
         imagePullPolicy: Always
         ports:
         - containerPort: 8081
-        image: wubin28/shopping-list-api:v1.2
+        image: wubin28/shopping-list-api:v1.1
         env:
         - name: DB_HOST
           value: postgres-service
         - name: FRONT_END_URL
-          value: "http://20.232.53.195:8080"
+          value: http://20.232.53.195:8080
