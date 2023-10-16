@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: shopping-list
+  name: shopping-list-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: shopping-list
+  template:
+    metadata:
+      labels:
+        app: shopping-list
+    spec:
+      containers:
+      - name: shopping-list-api
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8081
+        image: wubin28/shopping-list-api:v1.2
+        env:
+        - name: DB_HOST
+          value: postgres-service
+        - name: FRONT_END_URL
+          value: "http://20.232.53.195:8080"
