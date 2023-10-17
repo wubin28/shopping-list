@@ -19,7 +19,7 @@ spec:
         imagePullPolicy: Always
         ports:
         - containerPort: 8081
-        image: wubin28/shopping-list-api:v1.1.macos-docker-desktop-k8s-allow-all-origins
+        image: wubin28/shopping-list-api:v1.1.macos-k8s-allow-all-path-patterns-and-origins
         env:
         - name: DB_HOST
           value: postgres-service
