@@ -1,5 +1,11 @@
 # Shopping List App
 
+![Shopping List App Web UI](./shopping-list-app-ui.png)
+
+
+![The Architecture of shopping list app on azure k8s service](./shopping-list-app-on-k8s-2023-10-18--17-07.drawio.png)
+
+
 ## Proxy Setup
 
 - As to Ubuntu, set ignore hosts in Network Proxy Settings
