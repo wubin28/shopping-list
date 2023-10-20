@@ -22,4 +22,4 @@ spec:
         image: wubin28/shopping-list-front-end:v1.1
         env:
         - name: API_URL
-          value: shopping-list-api-service
+          value: 40.76.159.76

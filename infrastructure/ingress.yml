@@ -1,0 +1,30 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: shopping-list-app-ingress
+  namespace: shopping-list-app
+  annotations:
+    nginx.ingress.kubernetes.io/enable-cors: "true"
+    nginx.ingress.kubernetes.io/cors-allow-origin: "*"
+    nginx.ingress.kubernetes.io/cors-allow-methods: "GET, PUT, POST, DELETE, PATCH, OPTIONS"
+    nginx.ingress.kubernetes.io/cors-allow-headers: "*"
+    nginx.ingress.kubernetes.io/use-regex: "true"
+spec:
+  ingressClassName: nginx
+  rules:
+  - http:
+      paths:
+        - path: /api/v1/shopping-items(/|$)(.*)
+          pathType: Prefix
+          backend:
+            service:
+              name: shopping-list-api-service
+              port:
+                number: 8081
+        - path: /(.*)
+          pathType: Prefix
+          backend:
+            service:
+              name: shopping-list-front-end-service
+              port:
+                number: 8080
