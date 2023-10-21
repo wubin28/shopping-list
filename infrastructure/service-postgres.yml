@@ -1,11 +1,10 @@
-
 apiVersion: v1
 kind: Service
 metadata:
-  name: postgres-service
+  name: shopping-list-postgres
 spec:
   selector:
-    app: shopping-list
+    app: shopping-list-postgres
   ports:
     - protocol: TCP
       port: 5432

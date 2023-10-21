@@ -2,17 +2,17 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: shopping-list
+    app: shopping-list-api
   name: shopping-list-api
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: shopping-list
+      app: shopping-list-api
   template:
     metadata:
       labels:
-        app: shopping-list
+        app: shopping-list-api
     spec:
       containers:
       - name: shopping-list-api
@@ -22,4 +22,4 @@ spec:
         image: wubin28/shopping-list-api:v1.1.macos-k8s-allow-all-path-patterns-and-origins
         env:
         - name: DB_HOST
-          value: postgres-service
+          value: shopping-list-postgres

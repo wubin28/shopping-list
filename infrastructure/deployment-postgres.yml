@@ -2,20 +2,20 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: shopping-list
-  name: postgres
+    app: shopping-list-postgres
+  name: shopping-list-postgres
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: shopping-list
+      app: shopping-list-postgres
   template:
     metadata:
       labels:
-        app: shopping-list
+        app: shopping-list-postgres
     spec:
       containers:
-      - name: postgres
+      - name: shopping-list-postgres
         imagePullPolicy: Always
         ports:
         - containerPort: 5432

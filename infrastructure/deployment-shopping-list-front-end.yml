@@ -2,17 +2,17 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: shopping-list
+    app: shopping-list-front-end
   name: shopping-list-front-end
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: shopping-list
+      app: shopping-list-front-end
   template:
     metadata:
       labels:
-        app: shopping-list
+        app: shopping-list-front-end
     spec:
       containers:
       - name: shopping-list-front-end
@@ -22,4 +22,4 @@ spec:
         image: wubin28/shopping-list-front-end:v1.1
         env:
         - name: API_URL
-          value: 40.76.159.76
+          value: shopping-list-api
