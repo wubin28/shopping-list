@@ -19,7 +19,7 @@ spec:
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
-        image: wubin28/shopping-list-front-end:v1.1
+        image: wubin28/shopping-list-front-end:v1.1.no8081
         env:
         - name: API_URL
-          value: shopping-list-api
+          value: 20.88.168.246
